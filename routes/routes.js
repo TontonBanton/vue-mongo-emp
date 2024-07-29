@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Define your routes here
-router.get('/', (req, res) => {
-  res.send('Welcome to the Employee CRUD API');
-});
+const userController = require('../src/user/userController')
+router.route('/user/getAll').get(userController, getDataControllerfn)
 
 module.exports = router;
