@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+const Employee = require('../models/employee')
 
-// Define Employee Schema
-const employeeSchema = new mongoose.Schema({
-  employee_id: String,
-  name: String,
-  dept: String,
-  position: String,
-});
-
-const Employee = mongoose.model('Employee', employeeSchema);
 
 // CRUD Routes
 router.get('/employees', async (req, res) => {
