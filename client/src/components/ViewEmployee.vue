@@ -24,7 +24,7 @@ import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
-//const router = useRouter();
+const router = useRouter();
 const employee = ref(null);
 
 const fetchData = async () => {
@@ -33,6 +33,16 @@ const fetchData = async () => {
     console.log(employeeId)
     const response = await axios.get(`http://localhost:3000/api/employees/${employeeId}`);
     employee.value = response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const deleteEmployee = async () => {
+  try {
+    const employeeId = route.params.employee_id;
+    await axios.delete(`http://localhost:3000/api/employees/${employeeId}`);
+    router.push('/');
   } catch (error) {
     console.error(error);
   }
