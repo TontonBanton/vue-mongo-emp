@@ -13,6 +13,19 @@ router.get('/employees', async (req, res) => {
   }
 });
 
+router.get('/employees/:id', async (req, res) => {
+  try {
+    const employee = await Employee.findById(req.params.id);  //id use is monggoDB _id object from front
+    if (employee) {
+      res.json(employee);
+    } else {
+      res.status(404).json({ message: 'Employee not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 router.post('/employees', async (req, res) => {
   const newEmployee = new Employee(req.body);
   try {
