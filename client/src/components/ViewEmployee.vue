@@ -2,12 +2,12 @@
   <div id="view-employee">
     <ul v-if="employee" class="collection with-header">
       <li class="collection-header"><h4>{{ employee.name }}</h4></li>
-      <li class="collection-item">Employee Id: {{ employee.empid }}</li>
+      <li class="collection-item">Employee Id: {{ employee.employee_id }}</li>
       <li class="collection-item">Department: {{ employee.dept }}</li>
       <li class="collection-item">Position: {{ employee.position }}</li>
 
       <div class="fixed-action-btn">
-        <router-link :to="{ name: 'edit-employee', params: { employee_id: employee.empid }}" class="btn-floating btn-large red">
+        <router-link :to="{ name: 'edit-employee', params: { employee_id: employee._id }}" class="btn-floating btn-large red">
           <i class="fa fa-pencil"></i>
         </router-link>
       </div>
