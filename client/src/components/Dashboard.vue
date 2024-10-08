@@ -1,3 +1,23 @@
+<script setup>
+import { useEmpActions } from '@/composables/useEmpActions';
+import { ref, onBeforeMount } from 'vue';
+import axios from 'axios';
+
+// const employees = ref([]);
+// const fetchEmployees = async () => {
+//   try {
+//     const response = await axios.get('http://localhost:3000/api/employees');
+//     employees.value = response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+const  { employees, fetchAllEmployees } = useEmpActions()
+onBeforeMount(fetchAllEmployees);
+
+</script>
+
 <template>
   <div id="dashboard">
     <ul class="collection with-header">
@@ -20,23 +40,3 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onBeforeMount } from 'vue';
-import axios from 'axios';
-
-const employees = ref([]);
-
-const fetchEmployees = async () => {
-  try {
-    const response = await axios.get('http://localhost:3000/api/employees');
-    employees.value = response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-onBeforeMount(fetchEmployees);
-</script>
-
-<style scoped>
-</style>
