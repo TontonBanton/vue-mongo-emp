@@ -1,21 +1,9 @@
 <script setup>
-import { useEmpActions } from '@/composables/useEmpActions';
-import { ref, onBeforeMount } from 'vue';
-import axios from 'axios';
+  import { useEmpActions } from '@/composables/useEmpActions';
+  import { onBeforeMount } from 'vue';
 
-// const employees = ref([]);
-// const fetchEmployees = async () => {
-//   try {
-//     const response = await axios.get('http://localhost:3000/api/employees');
-//     employees.value = response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-const  { employees, fetchAllEmployees } = useEmpActions()
-onBeforeMount(fetchAllEmployees);
-
+  const  { employees, fetchAllEmployees } = useEmpActions()
+  onBeforeMount(fetchAllEmployees);
 </script>
 
 <template>
