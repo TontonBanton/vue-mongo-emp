@@ -18,7 +18,6 @@ const fetchAllEmployees = async () => {
 };
 
 const fetchEmployeeById = async (mongoId) => {
-  console.log(mongoId)
   try {
     const response = await axios.get(`http://localhost:3000/api/employees/${mongoId}`);
     employee.value = response.data;
@@ -36,20 +35,20 @@ const saveEmployee = async (formEmpData) => {
   }
 };
 
-const deleteEmployee= async (routeEmpId) => {
+const deleteEmployee= async (mongoId) => {
   try {
-    await axios.delete(`http://localhost:3000/api/employees/${routeEmpId}`);
+    await axios.delete(`http://localhost:3000/api/employees/${mongoId}`);
   } catch (error) {
     console.error(error);
   }
 };
 
-return {
-  employees,
-  employee,
-  fetchAllEmployees,
-  fetchEmployeeById,
-  saveEmployee,
-  deleteEmployee
-}
+  return {
+    employees,
+    employee,
+    fetchAllEmployees,
+    fetchEmployeeById,
+    saveEmployee,
+    deleteEmployee
+  }
 }

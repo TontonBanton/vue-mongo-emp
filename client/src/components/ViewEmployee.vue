@@ -5,7 +5,7 @@ import { useRoute, useRouter } from 'vue-router';
 
 const  { employee, fetchEmployeeById, deleteEmployee } = useEmpActions()
 const route = useRoute();
-const routeEmpId = route.params.employee_id;
+const routeEmpId = route.params.empid;
 const router = useRouter();
 
 const fetchData = async () => {
@@ -29,7 +29,7 @@ onBeforeMount(fetchData);
       <li class="collection-item">Position: {{ employee.position }}</li>
 
       <div class="fixed-action-btn">
-        <router-link :to="{ name: 'edit-employee', params: { emp_id: employee._id }}" class="btn-floating btn-large red">
+        <router-link :to="{ name: 'edit-employee', params: { empid: employee._id }}" class="btn-floating btn-large red">
           <i class="fa fa-pencil"></i>
         </router-link>
       </div>

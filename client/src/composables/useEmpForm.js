@@ -10,10 +10,15 @@ export function useEmpForm() {
 
   // Populates form with the employee data.
   const populateForm = (emp) => {
-    form.employee_id = emp?.empid || '';  // Fallback in case emp is undefined
-    form.name = emp?.name || '';
-    form.dept = emp?.dept || '';
-    form.position = emp?.position || '';
+    if (!emp) {
+      console.error('No employee data to populate the form');
+      return;
+    }
+    console.log('Populating form with:', emp);  // Add a log to see what's passed
+    form.employee_id = emp.employee_id || '';
+    form.name = emp.name || '';
+    form.dept = emp.dept || '';
+    form.position = emp.position || '';
   };
 
   return { form, populateForm };

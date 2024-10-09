@@ -9,7 +9,7 @@ const { saveEmployee } = useEmpActions();
 </script>
 
 <template>
-< <div id="new-employee">
+  <div id="new-employee">
     <h3>New Employee</h3>
     <FormEmp :form="form" :submitAction="saveEmployee" />
   </div>
